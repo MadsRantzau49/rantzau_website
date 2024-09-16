@@ -2,7 +2,7 @@ from flask import send_file, request
 import os
 
 def oeb_index():
-    return send_file(os.path.join('websites','OB_Boedekasse','public','index.html'))
+    return send_file(os.path.join('templates','OB_Boedekasse','public','index.html'))
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -16,7 +16,7 @@ def upload_trans():
         return 'No selected file'
     if file and allowed_file(file.filename):
         filename = file.filename
-        file.save(os.path.join('websites','OB_Boedekasse','database', "trans.xlsx"))
+        file.save(os.path.join('templates','OB_Boedekasse','database', "trans.xlsx"))
         return 'File uploaded successfully!'
     else:
         return 'Invalid file type'
