@@ -86,7 +86,7 @@ function addCustomer(id){
         let customer = document.getElementById("customer"+id);
         if(customer === null){
             customer = document.createElement("img");
-            customer.src="./images/customer.png";
+            customer.src="https://i.pinimg.com/736x/4d/8f/ce/4d8fcea1a8efb1d2389859dbbe3514de.jpg";
             customer.id="customer"+id;
             customer.className="customer";
             customer.style.backgroundColor="green";
