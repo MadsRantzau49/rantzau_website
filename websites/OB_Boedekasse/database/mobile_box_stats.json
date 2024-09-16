@@ -1,0 +1,36 @@
+{
+    "box": [
+        {
+            "name": "\u00d8B bajerpension",
+            "number": "1783QN",
+            "balance": 1008,
+            "send_money_to": [
+                "Victor Birkemose",
+                "\u00d8ster Sundby Boldklub",
+                "Gebyr",
+                "Gudumholm Idr\u00e6tsforening, Cafe",
+                "Gudumholm Idr\u00e6tsforening, Cafe",
+                "Gebyr",
+                "Mads Rantzau Nielsen"
+            ],
+            "send_money_amount": [
+                -300,
+                -250,
+                -19,
+                -65,
+                -210,
+                -19,
+                -250
+            ],
+            "date": [
+                "07/06/2024 21:53",
+                "01/06/2024 17:28",
+                "20/05/2024 18:19",
+                "15/05/2024 20:41",
+                "15/05/2024 20:25",
+                "08/05/2024 22:31",
+                "07/05/2024 11:37"
+            ]
+        }
+    ]
+}

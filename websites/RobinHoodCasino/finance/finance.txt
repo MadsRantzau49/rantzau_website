@@ -1,0 +1,1 @@
+Tænker vi laver et fælles funktion som tager et input value og output value og ligger det ind i en database (eller bare et tekstdokument)

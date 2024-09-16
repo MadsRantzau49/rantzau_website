@@ -1,0 +1,56 @@
+<html>
+<head>
+<title> Find The Thai </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--<meta http-equiv="refresh" content="2;url=http://192.168.0.100:5001/find_the_thai.html"></head>--!>
+<body>
+<style>
+h1{
+    text-align: center;
+}
+#placedBet{
+width:10%;
+}
+
+button:hover{
+border: 2px SOLID RED;
+}
+{% for image in random_img %}
+.image-{{loop.index0}} {
+{% if first_time == 0 and result == loop.index0 %}
+background: url('{{ url_for("static", filename="1" ~ image) }}');
+    {% else %}
+      background: url('{{ url_for("static", filename=image) }}');
+    {% endif %}
+  background-size: 100%;
+  background-repeat:no-repeat;
+  width: 15%;
+  height: 16rem;
+  border: 1px solid;
+}	
+{% endfor %}
+
+
+</style>
+<h1>Find The Thai</h1>
+
+<form action="/find_the_thai.html" method="post">
+
+<div>
+	<input type="number" id="placedBet" value=10 name="placedBet">
+	<input type="hidden" id="custId" name="resendImages" value="{{random_img}}">
+	{% for i in range(numbers_of_thais) %}
+	<button type="submit" name="choosenThai" value={{i}} class="image-{{i}}" >	</button>
+
+	{% endfor %}
+</div>
+
+</form>
+<p>choosenThai: {{choosenThai}}<p>
+<p>placedBet: {{placedBet}}<p>
+<p>Profit: {{profit}}<p>
+<p>result: {{result}}<p>
+<p> first_time: {{first_time}} </p>
+<p>sameImages: {{random_img}}</p>
+</body>
+</html>
