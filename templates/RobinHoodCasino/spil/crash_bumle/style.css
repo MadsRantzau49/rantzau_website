@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: verdana;
+   }
+
+body{
+overflow: hidden;
+}
+                                                                                         /* CRASH CHART */
+.chart{
+    position: relative;
+    width: 60%;
+    height: 70%;
+    float: right;
+    border: 1px SOLID black;
+    }
+        #myChart{
+            background: white; 
+            }
+    
+        #crashX{
+            position: absolute;
+            font-size: 30px;
+            font-family: cursive;
+            font-weight: bold;
+            left: 50%;
+            top: 20%;
+            transform: translate(-50%, -50%);
+            }
+            
+                                                                                 /* CRASH INPUT */
+.user{
+    position: absolute;
+    width: 40%;
+    border: 1px SOLIC black;
+}
+    .user input {
+        width: 80%;
+    }
+    
+        #cashOut{
+            font-size: 30px;
+        }
+        
+        #cashOutProfit{
+            font-size: 30px;
+            border: 1px SOLID black;
+            width: 50%;
+        }
+                                                                            /* NAVBAR */
+.navbar{
+   margin-top: 20px;
+   margin-left: 10%;
+   width: 80%;
+   height: 64px;
+   overflow: hidden;
+   background-color: white;
+    float: left;
+  position: fixed;
+  top: 0;
+  background-color: #232123; 
+  opacity: 0.8;
+}
+.navbar:hover{
+ opacity: 1;
+}
+
+.navbar li{
+    display: inline;
+}
+    
+
+#log{
+   float: right;
+   font-size: 10px;
+   margin: 7px;
+   padding: 10px;
+}
+#kurv{
+    float: right;
+   margin: 7px;
+   padding: 10px;
+}
+#log:hover{
+   background-color:white;
+   color: black;
+   
+}
+#logobillede{
+ float: left;
+ margin: 0;
+ padding: 0;
+}
+#logobillede:hover{
+ background: #232123;
+}
+
+.navbar li a{
+   float: right;
+    color: white;
+    font-family: verdana;
+    font-size: 14px;
+    text-decoration: none;
+    margin-top: 3px; 
+    margin-right: 5px;
+    margin-left: 5px;
+    padding: 20px;
+    font-weight: bold;
+}
+
+.navbar li a:hover{
+   background-color: orange; 
+}#coins{	margin-right: 27%;}/* RACERSPIL */body{overflow: hidden;margin: 0;}.bane{
+    background-image: url('{{url_for("/rhc_crash_and_bumle_image/bumle.png")}}');
+
+
+    width: 100%;height: 110vh;}#bil{width: 8%;height: 8%;position: absolute;}.fjendeClass{width: 5%;height: 5%;position: absolute;}#Fjende{left: 14%;}#Fjendee{left: 47.5%;}#Fjendeee{left: 81%;}.OpdelBane{top: 10%;font-size: 1em;height: 100%;position: absolute;color: white;background-color: white;}#Bane1{left: 33%;}#Bane2{left: 66%;}#startknap{position: absolute;left: 33%;width: 33;top: 10%;font-size:70px; color: white; background: black;}.Praktisk{position: absolute;left: 33%;top: 25%;width: 33%;height: 33%;background: rgba(255,255,255,0.8);}#Score{position: absolute;top: 70%;font-size: 2.5em;text-align: center;width: 100%;font-weight: bold;}#tid {position: absolute;top: 50%;font-size: 2.5em;text-align: center;width: 100%;font-weight: bold;}#tidd{position:fixed;top:10%;left: 200%;font-size: 3em;text-align: center;font-weight: bold;width: 100%;}

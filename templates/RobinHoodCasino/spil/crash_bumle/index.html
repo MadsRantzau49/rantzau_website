@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+ 	<head>
+	
+		<link rel="stylesheet" href="/rhc_crash_and_bumle_style">
+
+		<meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">      
+
+		<title>Casino De Tricher </title>
+      <link rel="icon" href="/rhc_crash_and_bumle_image/warning.jpg" type="image/gif">
+		</head>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+  
+ </script>
+<body>
+<!-- navigationsbar -->
+<div class="navbar">
+                <ul>
+                    <li><a id="logobillede" href="/rhc_crash"><img src="/rhc_crash_and_bumle_image/CasinoDT.png" style="width: 300px; "> </a></li>
+             
+				 <li><a href='/rhc_crash'>Crash</a></li>
+                 <li><a href='/rhc_bumle'>Bumle</a></li>
+                 <li><a href='/rhc_crash'>Forside</a></li>
+				 <li><a id="coins">Coins: 0</a></li>
+                </ul>
+            </div>
+
+            <br><br><br>
+	<br><br><br>
+	
+	<!-- Place your bet  -->
+	
+<div class="user">
+	
+	<input type="number" id="betAmount" name="betAmount" min="0" placeholder="Place your bet">
+	<br><br>
+<button type="button" id="startGame" onclick="doSomething()">Start Game</button>
+<br>
+<b><p><a id="broke" href="/rhc_bumle"><a><p></b>
+<br><br><br><br><br><br>
+
+<!-- Træk pengene ud -->
+
+<button type="cashOutButton" id="cashOut" onclick="cashOutFunction()">Cash Out</button>
+<p id="cashOutProfit">Cash out profit</p>
+
+</div>
+
+<div class="chart">
+ <p id="crashX">1.00</p>
+<canvas id="myChart"></canvas> 
+</div>
+
+
+<script>
+var coins = parseFloat(localStorage.getItem("coins"));
+
+if (coins >= 0){
+document.getElementById("coins").innerHTML = "Coins: " + coins;
+}else{
+ localStorage.setItem("coins", 0);
+}
+
+	//Shows the start from crash
+crashStart = 1;
+//Shows how fast the Y-value skalere.
+crashGrow = 1.0035;
+//Shows how long the x- and y-axis are. 
+xAxe = 0;
+yAxe = 2;
+//Loop delay in milliseconds. 
+speedTime = 100;
+//Shows when the crash occurr (when the loop should stop)
+//Change time scale 10=100 milliseconds to 1 seconds. 
+TimeConverter = 10;
+
+var xValuesLayout = [];
+var xValues = [];
+var yValues = [];
+
+var clicked = false;
+var clickedDebug = true;
+
+function cashOutFunction(){
+   clicked = true;
+} 
+
+//Helping tool to make sleep function
+const sleep = (milliseconds) => {
+  return new Promise(resolve => setTimeout(resolve, milliseconds))
+}
+
+
+
+//the whole crash game function start here
+const doSomething = async () => {
+clicked = false;
+clickedDebug = true;
+var crashMath;
+var crashMath1;
+var crashMath2;
+var crashMath3;
+var crashMath4;
+var crashMath5;
+var crashMath6;
+var crashMath7;
+var crashMath8;
+
+
+xAxe = 0;
+//Clear x and y values.
+	yValues = [1];
+ xValues = [];
+	xValuesLayout = [];
+
+//Shows when the crash occurr (when the loop should stop)
+//crash = Math.floor(Math.random() * (1000 - 100) + 100) / 100;
+
+// The math behind when its crash:
+
+
+crashMath = Math.floor(Math.random()*2);
+if(crashMath == 1){crash = Math.floor(Math.random() * (150 - 100) + 100) / 100;}
+					else {crashMath1 = Math.floor(Math.random()*2);
+					if(crashMath1 == 1){crash = Math.floor(Math.random() * (200 - 150) + 150) / 100;}
+										else {crashMath2 = Math.floor(Math.random()*2);
+										if(crashMath2 == 1){crash = Math.floor(Math.random() * (300 - 200) + 200) / 100;}
+															else {crashMath3 = Math.floor(Math.random()*2);
+															if(crashMath3 == 1){crash = Math.floor(Math.random() * (500 - 300) + 300) / 100;}
+																				else {crashMath4 = Math.floor(Math.random()*2);
+																				if(crashMath4 == 1){crash = Math.floor(Math.random() * (1000 - 500) + 500) / 100;}
+																									else {crashMath5 = Math.floor(Math.random()*2);
+																									if(crashMath5 == 1){crash = Math.floor(Math.random() * (2000 - 1000) + 1000) / 100;}
+																														else {crashMath6 = Math.floor(Math.random()*2);
+																														if(crashMath6 == 1){crash = Math.floor(Math.random() * (4000 - 2000) + 2000) / 100;}
+																																			else {crashMath7 = Math.floor(Math.random()*2);
+																																			if(crashMath7 == 1){crash = Math.floor(Math.random() * (10000 - 4000) + 4000) / 100;}
+																																								else {crashMath8 = Math.floor(Math.random()*2);
+																																								if(crashMath8 == 1){crash = Math.floor(Math.random() * (30000 - 10000) + 10000) / 100;}
+																																														else{
+																																														crash = Math.floor(Math.random() * (1000000 - 30000) + 30000) / 100;
+																																																		}
+																																													}
+																																								}
+																																			}
+																														}
+																									}
+																				}
+															}
+										}			
+
+
+
+//Defines the current value from chart
+let odds = 1;
+	
+	var userBet = document.getElementById("betAmount").value;
+	var coins = parseFloat(localStorage.getItem("coins"));
+	
+	if(userBet <= coins){
+	
+	coins = coins - userBet;
+	localStorage.setItem('coins',coins);
+	
+	
+	
+//Make sure the game stop when the crash occur.	
+while(odds <= crash && clickedDebug == true)
+{
+document.getElementById("coins").innerHTML = "Coins: " + coins;
+
+	if (odds >= 2){
+		TimeConverter = 33.3;
+		speedTime = 30;
+	} else if (odds >= 100){
+			TimeConverter = 100;
+		speedTime = 10;
+	}
+
+odds = yValues[yValues.length - 1];
+odds = odds.toFixed(2);
+document.getElementById('crashX').innerText = odds + "x";
+
+
+
+//OUTCOME FROM BET
+
+
+
+			//Sleeptimer
+   await sleep(speedTime);
+          xAxe++;
+										yAxe = odds - -1;
+										//Make sure that the arrays dosen't get dublicated. 
+          yValues = [];
+          xValues = [];
+										xValuesLayout = [];
+										
+										
+										//The math from the function.
+    generateData("crashStart*crashGrow**x", 0, xAxe, 1);
+     
+					//Pushing data into chart. 
+     function generateData(value, i1, i2, step = 1)
+     {
+         for (let x = i1; x <= i2; x += step)
+         {										
+           yValues.push(eval(value));
+           xValues.push(x);
+											xValuesLayout.push(x/TimeConverter);
+         } 
+     }
+															//Create chart and style
+															Chart.defaults.scale.gridLines.display = false;
+               new Chart("myChart",
+               {
+                 type: "line",
+                 data:
+                 {
+                  labels: xValuesLayout,
+                  datasets: [{
+                    fill: false,
+                    pointRadius: 0,
+                    borderColor: "rgba(255,0,0,0.5)",
+                    data: yValues
+                  }]
+                 },    
+                     options:
+                     {
+																							tooltips: {enabled: false},
+																							hover: {mode: null},
+                       legend: {display: false},
+                       scales:
+                       {
+                       yAxes: [{
+																																position: 'right',
+																																		ticks:
+																																		{
+																																				min: 1,
+																																				max: yAxe
+																																		}
+																														}],
+																							
+																							xAxes: [{
+																																ticks:
+																																{
+																																		min: 0, max: 100,
+																																		maxTicksLimit: 1,
+																																		autoSkip: true,
+																																		maxRotation: 0,
+																																		minRotation: 0
+																																},
+																															
+																															}]
+                       },
+                       animation:
+                       {
+                       duration: 0
+                       }
+																							
+                     }
+               });
+               
+			   
+			   //Stop the cash out button. 
+profit = userBet * odds;
+profit = profit.toFixed(2);
+if(clicked == false){
+document.getElementById('cashOutProfit').innerText = profit;
+localStorage.setItem('LatestGame',profit);
+} 
+else if(clicked == true && odds <= crash) {
+clickedDebug = false;
+coins = parseFloat(localStorage.getItem("coins"));
+var profitFloat = parseFloat(profit);
+var coinsFloat = parseFloat(coins);
+coinsFloat = coinsFloat + profitFloat;
+coinsFloat.toFixed(2);
+localStorage.setItem('coins',coinsFloat);
+document.getElementById("coins").innerHTML = "Coins: " + coinsFloat;
+document.getElementById('cashOutProfit').innerText = profit;
+}
+if(odds >= crash && clicked == false)
+{
+document.getElementById('cashOutProfit').innerText = "Cash out profit";
+}
+			   
+}
+
+ }else {
+
+ document.getElementById("broke").innerHTML = "Not enough money, get free coins playing Bumle";
+ }
+   
+    
+	
+}	
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/rhc_crash_and_bumle_style">
+
+		<meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">      
+
+		<title>Casino De Tricher </title>
+
+      <link rel="icon" href="/rhc_crash_and_bumle_image/warning.jpg" type="image/gif">
+
+
+
+</head>
+<body>
+<!-- navigationsbar -->
+<div class="navbar">
+                <ul>
+                    <li><a id="logobillede" href="index.html"><img src="/rhc_crash_and_bumle_image/CasinoDT.png" style="width: 300px; "> </a></li>
+             
+				 <li><a href='index.html'>Crash</a></li>
+                 <li><a href='racerspil.html'>Bumle</a></li>
+                 <li><a href='index.html'>Forside</a></li>
+				  <li><a id="coins">Coins: 0</a></li>
+                </ul>
+            </div>
+
+
+<p id="tidd"> 0 </p>
+<div class="Praktisk" id="PraktiskID">
+<button onclick="start()" id="startknap"> START </button>
+<p id="Score"> Highscore- 0 </p>
+<p id="tid"> 0 </p>
+</div>
+<div class="bane" > 
+<p id="Bane1" Class="OpdelBane"> | </p>
+<p id="Bane2" Class="OpdelBane"> | </p>
+<p id="bil"> <img id ="bilIMG" style = "width: 100%; height: 100%;" src = "/rhc_crash_and_bumle_image/bumle.png" ></p>
+<p id="Fjende" class="fjendeClass">  <img style = "width: 100%; height: 100%;" src = "/rhc_crash_and_bumle_image/frank.png" > </p>
+<p id="Fjendee" class="fjendeClass"> <img style = "width: 100%; height: 100%;" src = "/rhc_crash_and_bumle_image/frank.png" > </p>
+<p id="Fjendeee"class="fjendeClass"> <img style = "width: 100%; height: 100%;" src = "/rhc_crash_and_bumle_image/frank.png" > </p>
+</div>
+
+<script>
+
+var HS = localStorage.getItem("Highscore");
+var CS = localStorage.getItem("CurrentScore");
+var coins = parseFloat(localStorage.getItem("coins"));
+
+if (coins >= 0){
+document.getElementById("coins").innerHTML = "Coins: " + coins;
+}else{
+ localStorage.setItem("coins", 0);
+}
+  
+document.getElementById("Score").innerHTML = "HIGHSCORE: " + HS;
+document.getElementById("tid").innerHTML = "CURRENT SCORE: " + CS;
+
+let Bilen = document.getElementById("bil");
+let tal;
+let taly;
+let hitbox;
+let hitbox1;
+let crash = false;
+
+ 	Bilen.style.position = 'absolute';
+ 	Bilen.style.left = 45 + '%';
+ 	Bilen.style.top = 77 + '%';
+	tal = 2;
+	taly = 1;
+	hitbox = 74;
+	hitbox1 = 77;
+
+let id;
+function start() {
+crash = false;
+
+
+
+
+ 	Bilen.style.position = 'absolute';
+ 	Bilen.style.left = 45 + '%';
+ 	Bilen.style.top = 77 + '%';
+	tal = 2;
+	taly = 1;
+	hitbox = 74;
+	hitbox1 = 77;
+
+
+
+document.getElementById("PraktiskID").style.left = "500%";
+document.getElementById("tidd").style.left = "0%";
+
+let totalSeconds = 0;
+var tidstager = setInterval(() => {
+   totalSeconds += 1;
+   document.getElementById("tidd").innerHTML = totalSeconds;
+}, 1000)  
+ var harder = 0;
+ var random1 = 2;
+ var random2 = 2;
+ var random3 = 2;
+
+  var fjende1 = document.getElementById("Fjende"); 
+var fjende2 = document.getElementById("Fjendee"); 
+var fjende3 = document.getElementById("Fjendeee");   
+  var pos1 = 60;
+  var pos2 = 0;
+  var pos3 = 30;
+  clearInterval(id);
+  id = setInterval(frame, 60);
+  
+  
+  
+  function frame() {
+  
+  
+      pos1 = pos1 + random1; 
+	  pos2 = pos2 + random2;
+	  pos3 = pos3 + random3;
+      fjende1.style.top = pos1 + '%'; 
+	  fjende2.style.top = pos2 + '%'; 
+	  fjende3.style.top = pos3 + '%'; 
+	  	 
+	 harder = (totalSeconds / 10)+3; 
+      if (pos1 >= 100){
+	  pos1 = 0;
+	  random1 = Math.floor((Math.random() * harder ) + 1);
+	  }
+	  if (pos2 >= 100){
+	  pos2 = 0;
+	  random2 = Math.floor((Math.random() * harder ) + 1);
+	  }
+	  if (pos3 >= 100){
+	  pos3 = 0;
+	  random3 = Math.floor((Math.random() * harder ) + 1);
+	  }
+	
+	 if (
+	 pos1 >= hitbox && pos1 <= hitbox1 && tal == 1 ||
+	 pos3 >= hitbox && pos3 <= hitbox1 && tal == 3 ||
+	 pos2 >= hitbox && pos2 <= hitbox1 && tal == 2 ||
+	 tal == 0 ||
+	 tal == 4 ||
+	 taly == 5
+		){
+	  clearInterval(id);
+	 document.getElementById("PraktiskID").style.left = "33.3%";
+	   if (totalSeconds > HS){
+	  localStorage.setItem("Highscore", totalSeconds);
+	   alert("NYYY HIGHSCORE!: " + totalSeconds);
+	  } else {
+	 localStorage.setItem("CurrentScore", totalSeconds);
+	  }	  
+	  clearInterval(tidstager);
+	  document.getElementById("tid").innerHTML = "CURRENT SCORE: " + totalSeconds;
+	  document.getElementById("tidd").style.left = "300%";
+	  
+	   coins = coins + totalSeconds;
+	  localStorage.setItem("coins", coins);
+	  document.getElementById("coins").innerHTML = "Coins: " + coins;
+
+	  crash = true;
+	 }
+	 
+
+	  
+
+}
+
+
+
+
+}
+
+/*
+let Bilen = document.getElementById("bil");
+let tal;
+let taly1;
+let hitbox;
+let hitbox1;
+
+window.addEventListener('load', () =>{
+ 	Bilen.style.position = 'absolute';
+ 	Bilen.style.left = 45 + '%';
+ 	Bilen.style.top = 77 + '%';
+	tal = 2;
+	taly = 1;
+	hitbox = 74;
+	hitbox1 = 77;
+});
+*/
+
+window.addEventListener('keyup', (event) => {
+if (event.key == 'ArrowLeft' && tal != 0 && tal !=4 && crash == false){
+Bilen.style.left = parseInt(Bilen.style.left) - 34 + '%';
+tal = tal - 1;
+}
+if (event.key == 'ArrowRight' && tal != 0 && tal !=4 && crash == false){
+Bilen.style.left = parseInt(Bilen.style.left) + 34 + '%';
+tal = tal + 1;
+}
+if (event.key == 'ArrowUp' && tal != 0 && tal !=4 && taly !=5 && crash == false){
+Bilen.style.top = parseInt(Bilen.style.top) - 20 + '%';
+taly = taly + 1;
+hitbox = hitbox - 20;
+hitbox1 = hitbox1 - 20;
+}
+if (event.key == 'Enter' && tal != 0 && tal !=4 && taly !=5 && crash == false){
+	location.reload();
+}
+ 
+});
+
+
+</script>
+
+
+</body>
+</html> 
