@@ -23,16 +23,16 @@ def rhc_ftt_serve_image(image_path):
 
 # Crash and bumle
 def rhc_crash_and_index():
-    return send_file(os.path.join('templates','RobinHoodCasino','spil','crash_and_bumle','index.html'))
+    return send_file(os.path.join('templates','RobinHoodCasino','spil','crash_bumle','index.html'))
 
 def rhc_bumle():
-    return send_file(os.path.join('templates','RobinHoodCasino','spil','crash_and_bumle','racerspil.html'))
+    return send_file(os.path.join('templates','RobinHoodCasino','spil','crash_bumle','racerspil.html'))
 
 def rhc_crash_and_bumle_style():
-    return send_file(os.path.join('templates','RobinHoodCasino','spil','crash_and_bumle','style.css'))
+    return send_file(os.path.join('templates','RobinHoodCasino','spil','crash_bumle','style.css'))
 
 def rhc_crash_and_bumle_serve_image(filename):
     print(filename,"FILENAME:")
-    folder_path = os.path.join('templates','RobinHoodCasino','spil','crash_and_bumle','photo')
+    folder_path = os.path.join('templates','RobinHoodCasino','spil','crash_bumle','photo')
     return send_from_directory(folder_path, filename)
 

@@ -1,4 +1,3 @@
-import flet as ft
 import json
 
 
@@ -7,7 +6,6 @@ def getOddsetData():
     with open('data.json', 'r') as f:
         data = json.load(f)
     return data
-
 
 def findMatchesTest():
     matchesList = [{"id": 0, "homeTeam": "Manchester United", "awayTeam": "Aab", "homeOdds": 2, "drawOdds": 1.5, "awayOdds": 3},{"id": 1, "homeTeam": "Liverpool", "awayTeam": "Chelsea", "homeOdds": 2.5, "drawOdds": 2.0, "awayOdds": 3.5}]
@@ -46,52 +44,6 @@ def findMatches():
         matchesList.append(match_dict)
     return matchesList
 
-
-def main(page: ft.page):
-    page.scroll = "always"
-
-    coupon_lst = ["test"]
-    coupon_display = ft.Text("hej")
-    page.add(coupon_display)
-
-    def display_coupon(event):
-        coupon_display = ft.Text(coupon_lst)
-        page.update()
-
-    def appendOdds(event, match, bet, odds):
-        coupon_lst.append({match, bet, odds})
-        display_coupon(None)
-
-    def generateOddsFields(event):
-        matches = findMatches()
-        for match in matches[:5]:
-            homeTeamLabel = ft.Text(value=f"{match.get("homeTeam")}   - ")
-            awayTeamLabel = ft.Text(value=match.get("awayTeam"))
-            homeOddsBtn = ft.ElevatedButton(text=match.get('homeOdds'), on_click=lambda e, m=match: appendOdds(e, m['id'], "1", m['homeOdds']))
-            drawOddsBtn = ft.ElevatedButton(text=match.get('drawOdds'), on_click=lambda e, m=match: appendOdds(e, m['id'], "x", m['drawOdds']))
-            awayOddsBtn = ft.ElevatedButton(text=match.get('awayOdds'), on_click=lambda e, m=match: appendOdds(e, m['id'], "2", m['awayOdds']))
-            
-            # Make them into a row
-            matchRow = ft.Row(
-                controls=[homeTeamLabel,awayTeamLabel,homeOddsBtn,drawOddsBtn,awayOddsBtn],
-                spacing=10
-            )
-            # Insert the row into a container.
-            matchContainer = ft.Container(
-                content=matchRow,
-                border=ft.border.all(1, "black"), 
-                padding=10,  
-                border_radius=5, 
-                width=page.width * 0.4
-            )
-            page.add(matchContainer)
-
-
-    # clickBtn = ft.ElevatedButton(text="click", on_click=generateOddsFields)
-    # page.add(clickBtn)
-    generateOddsFields(None)
-    
-ft.app(target=main)
 
 
 

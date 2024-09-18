@@ -112,7 +112,7 @@ overflow: hidden;
 .navbar li a:hover{
    background-color: orange; 
 }#coins{	margin-right: 27%;}/* RACERSPIL */body{overflow: hidden;margin: 0;}.bane{
-    background-image: url('{{url_for("/rhc_crash_and_bumle_image/bumle.png")}}');
+    background-image: url('/rhc_crash_and_bumle_image/baggrund.jpg');
 
 
     width: 100%;height: 110vh;}#bil{width: 8%;height: 8%;position: absolute;}.fjendeClass{width: 5%;height: 5%;position: absolute;}#Fjende{left: 14%;}#Fjendee{left: 47.5%;}#Fjendeee{left: 81%;}.OpdelBane{top: 10%;font-size: 1em;height: 100%;position: absolute;color: white;background-color: white;}#Bane1{left: 33%;}#Bane2{left: 66%;}#startknap{position: absolute;left: 33%;width: 33;top: 10%;font-size:70px; color: white; background: black;}.Praktisk{position: absolute;left: 33%;top: 25%;width: 33%;height: 33%;background: rgba(255,255,255,0.8);}#Score{position: absolute;top: 70%;font-size: 2.5em;text-align: center;width: 100%;font-weight: bold;}#tid {position: absolute;top: 50%;font-size: 2.5em;text-align: center;width: 100%;font-weight: bold;}#tidd{position:fixed;top:10%;left: 200%;font-size: 3em;text-align: center;font-weight: bold;width: 100%;}
