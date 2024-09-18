@@ -17,7 +17,10 @@ app.add_url_rule('/SellCoke_style', 'rhc_sell_coke_style', rhc_sell_coke_style)
 app.add_url_rule('/rhc_findTheThai_index', 'rhc_ftt_index', rhc_ftt_index, methods=['POST','GET'])
 app.add_url_rule('/images/<path:image_path>', 'rhc_ftt_serve_image', rhc_ftt_serve_image)
 
-
+app.add_url_rule('/rhc_crash/', 'rhc_crash_and_index', rhc_crash_and_index)
+app.add_url_rule('/rhc_bumle/', 'rhc_bumle', rhc_bumle)
+app.add_url_rule('/rhc_crash_and_bumle_style','rhc_crash_and_bumle_style',rhc_crash_and_bumle_style)
+app.add_url_rule('/rhc_crash_and_bumle_image/<filename>','rhc_crash_and_bumle_serve_image',rhc_crash_and_bumle_serve_image)
 
 app.add_url_rule('/OEB', 'oeb_index', oeb_index)
 app.add_url_rule('/OEB_upload_trans', 'upload_trans', upload_trans , methods=['POST'])
