@@ -2,7 +2,7 @@ from flask import Flask
 from routes.index import *
 from routes.robinHoodCasino import *
 from routes.boedekasse import *
-
+from routes.music import *
 
 app = Flask(__name__)
 PORT = 10000
@@ -25,6 +25,6 @@ app.add_url_rule('/rhc_crash_and_bumle_image/<filename>','rhc_crash_and_bumle_se
 app.add_url_rule('/OEB', 'oeb_index', oeb_index)
 app.add_url_rule('/OEB_upload_trans', 'upload_trans', upload_trans , methods=['POST'])
 
-
+app.add_url_rule('/music_index','music_indexx',music_indexx)
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=PORT, debug=True)
